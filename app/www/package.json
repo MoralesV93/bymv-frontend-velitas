@@ -1,0 +1,15 @@
+{
+  "name": "locales-velita",
+  "version": "1.0.0",
+  "description": "Locales Velita - Sitio web para locales de eventos familiares",
+  "scripts": {
+    "html-validate": "html-validate \"**/*.html\"",
+    "lint": "npm run html-validate"
+  },
+  "dependencies": {
+    "html-validate": "^10.5.0"
+  },
+  "author": "Byron Morales",
+  "license": "UNLICENSED",
+  "private": true
+}

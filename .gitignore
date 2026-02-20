@@ -21,3 +21,13 @@ Thumbs.db
 # Build output
 dist/
 build/
+
+# Terraform
+infra/**/.terraform/
+infra/**/terraform.tfstate*
+infra/**/.terraform.lock.hcl
+infra/**/*.tfvars
+!infra/**/*.tfvars.example
+
+# Package locks (optional - uncomment if you want to ignore)
+# package-lock.json
