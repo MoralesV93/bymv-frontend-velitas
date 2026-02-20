@@ -1,0 +1,11 @@
+# Example Terraform variables
+# Copy this file to terraform.tfvars and fill in your values
+
+domain_name       = "bymv"
+namespace         = "frontend"
+name              = "velitas"
+service           = "s3"
+aliases           = ["localesvelita.com", "www.localesvelita.com"]
+acm_certification = "arn:aws:acm:us-east-1:ACCOUNT_ID:certificate/CERTIFICATE_ID"
+route_53_zone_id  = "ZONE_ID"
+cnmanage_key      = "core/security/cmanager/terraform.tfstate"

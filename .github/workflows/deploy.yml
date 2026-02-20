@@ -1,0 +1,89 @@
+name: Deploy to S3 and CloudFront
+
+on:
+  workflow_run:
+    workflows: ["Release Tagging"]
+    types:
+      - completed
+  workflow_dispatch:
+    inputs:
+      tag:
+        description: 'Tag to deploy (e.g., 1.0.0 or v1.0.0)'
+        required: true
+        type: string
+
+jobs:
+  get_tag:
+    runs-on: ubuntu-latest
+    outputs:
+      deploy: ${{ steps.check.outputs.deploy }}
+      tag: ${{ steps.check.outputs.tag }}
+    steps:
+      - name: Get tag from workflow_run or input
+        id: check
+        run: |
+          if [ "${{ github.event_name }}" == "workflow_dispatch" ]; then
+            TAG="${{ github.event.inputs.tag }}"
+            # Remove 'v' prefix if present
+            TAG="${TAG#v}"
+            if [[ ! "$TAG" =~ ^[0-9]+\.[0-9]+\.[0-9]+$ ]]; then
+              echo "Invalid tag format. Expected X.X.X or vX.X.X"
+              exit 1
+            fi
+            echo "deploy=true" >> $GITHUB_OUTPUT
+            echo "tag=$TAG" >> $GITHUB_OUTPUT
+          else
+            if [ "${{ github.event.workflow_run.conclusion }}" == "success" ]; then
+              echo "deploy=true" >> $GITHUB_OUTPUT
+              # Get the latest tag
+              TAG=$(git describe --tags --abbrev=0 2>/dev/null || echo "")
+              echo "tag=$TAG" >> $GITHUB_OUTPUT
+            else
+              echo "deploy=false" >> $GITHUB_OUTPUT
+            fi
+          fi
+
+  deploy:
+    needs: get_tag
+    if: needs.get_tag.outputs.deploy == 'true'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: eu-central-1
+
+      - name: Sync release to current
+        run: |
+          aws s3 sync s3://${{ secrets.S3_BUCKET_NAME }}/releases/${{ needs.get_tag.outputs.tag }} \
+            s3://${{ secrets.S3_BUCKET_NAME }}/current \
+            --delete
+
+      - name: Invalidate CloudFront cache
+        run: |
+          aws cloudfront create-invalidation \
+            --distribution-id ${{ secrets.CLOUDFRONT_DISTRIBUTION_ID }} \
+            --paths "/*"
+
+      - name: Update current tag
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git tag -fa current -m "Current release: ${{ needs.get_tag.outputs.tag }}"
+          git push origin current --force
+
+      - name: Create GitHub Release
+        uses: softprops/action-gh-release@v1
+        with:
+          tag_name: ${{ needs.get_tag.outputs.tag }}
+          generate_release_notes: true
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

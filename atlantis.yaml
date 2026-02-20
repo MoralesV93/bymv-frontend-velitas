@@ -1,0 +1,30 @@
+version: 3
+automerge: true
+parallel_plan: false
+parallel_apply: true
+
+workflows:
+  bymv-workflow:
+    plan:
+      steps:
+        - run: terraform init -upgrade
+        - run: terraform workspace select $WORKSPACE || terraform workspace new $WORKSPACE
+        - run: terraform plan -var-file=$TF_VAR_FILE -out=$PLANFILE
+    apply:
+      steps:
+        - run: terraform apply $PLANFILE
+
+projects:
+  - name: infra/www/velitas-default
+    dir: infra/www/velitas
+    workspace: default
+    workflow: bymv-workflow
+    autoplan:
+      enabled: true
+      when_modified:
+        - "*.tf"
+        - ".terraform.lock.hcl"
+        - "terraform/modules/**/*.tf"
+    apply_requirements:
+      - undiverged
+    execution_order_group: 1

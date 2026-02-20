@@ -1,0 +1,11 @@
+node_modules
+.git
+.gitignore
+Dockerfile
+.dockerignore
+README.md
+*.log
+*.md
+dist/
+build/
+.DS_Store

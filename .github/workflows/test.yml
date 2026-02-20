@@ -1,0 +1,36 @@
+name: Test HTML
+
+on:
+  pull_request:
+    paths:
+      - 'app/www/**'
+
+jobs:
+  html-lint-validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+
+      - name: Install dependencies
+        working-directory: app/www
+        run: npm ci
+
+      - name: Validate HTML
+        working-directory: app/www
+        run: npx html-validate '**/*.html'
+
+  check-app-links:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Check links
+        uses: lycheeverse/lychee-action@v2
+        with:
+          args: --verbose --no-progress 'app/www/**/*.html'
+          fail: true
