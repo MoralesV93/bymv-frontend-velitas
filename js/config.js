@@ -1,226 +1,227 @@
 /**
  * ============================================
- * VELITAS ESTATE - SITE CONFIGURATION
+ * LOCALES VELITA - CONFIGURACION DEL SITIO
  * ============================================
- * Edit this file to change all text content,
- * images, and settings across the website.
+ * Edita este archivo para cambiar todo el
+ * contenido, imagenes y configuraciones.
  * ============================================
  */
 
 const CONFIG = {
 
     // ==========================================
-    // BUSINESS INFORMATION
+    // INFORMACION DEL NEGOCIO
     // ==========================================
     business: {
-        name: "Velitas Estate",
-        tagline: "Two Venues, Countless Memories",
+        name: "Locales Velita",
+        tagline: "Dos Locales, Infinitos Recuerdos",
         foundedYear: 1987,
-        phone: "+1 (555) 123-4567",
-        email: "hello@velitasestate.com",
-        address: "123 Estate Avenue, City",
-        phoneLabel: "Call Us",
-        emailLabel: "Email",
-        addressLabel: "Location",
+        phone: "+34 912 345 678",
+        email: "info@localesvelita.com",
+        address: "Calle Principal 123, Madrid",
+        // Etiquetas de contacto
+        phoneLabel: "Llamanos",
+        emailLabel: "Correo",
+        addressLabel: "Ubicacion",
     },
 
     // ==========================================
-    // NAVIGATION
+    // NAVEGACION
     // ==========================================
     navigation: {
         links: [
-            { text: "Our Venues", href: "#venues" },
-            { text: "Occasions", href: "#occasions" },
-            { text: "Gallery", href: "#gallery" },
+            { text: "Nuestros Locales", href: "#venues" },
+            { text: "Eventos", href: "#occasions" },
+            { text: "Galeria", href: "#gallery" },
         ],
-        ctaText: "Book Now",
+        ctaText: "Reservar",
         ctaHref: "#booking",
     },
 
     // ==========================================
-    // HERO SECTION
+    // SECCION HERO
     // ==========================================
     hero: {
-        subtitle: "Two Venues, Countless Memories",
-        title: "Where Your Most Precious Moments Come to Life",
-        description: "From our elegant Grand Hall to our enchanting Garden Terrace, discover two extraordinary venues designed to make your celebrations unforgettable.",
+        subtitle: "Dos Locales, Infinitos Recuerdos",
+        title: "Donde Tus Momentos Mas Preciados Cobran Vida",
+        description: "Desde nuestro elegante Salon Principal hasta nuestra encantadora Terraza Jardin, descubre dos espacios extraordinarios disenados para hacer tus celebraciones inolvidables.",
         primaryButton: {
-            text: "Check Availability",
+            text: "Consultar Disponibilidad",
             href: "#booking",
         },
         secondaryButton: {
-            text: "Explore Our Venues",
+            text: "Conoce Nuestros Locales",
             href: "#venues",
         },
-        scrollText: "Scroll",
+        scrollText: "Desliza",
         backgroundImage: "images/hero-bg.jpg",
         backgroundImageFallback: "https://images.unsplash.com/photo-1519167758481-83f550bb49b3?w=1920&q=80",
     },
 
     // ==========================================
-    // VENUES SECTION
+    // SECCION LOCALES
     // ==========================================
     venues: {
-        sectionTitle: "Our Venues",
-        sectionDescription: "Two distinct spaces, each with its own character and charm, ready to host your most cherished celebrations.",
-        bestForLabel: "Best For",
+        sectionTitle: "Nuestros Locales",
+        sectionDescription: "Dos espacios unicos, cada uno con su propio caracter y encanto, listos para albergar tus celebraciones mas especiales.",
+        bestForLabel: "Ideal Para",
 
         items: [
             {
-                id: "grand-hall",
-                name: "The Grand Hall",
-                badge: "Signature Venue",
-                description: "An opulent indoor space featuring crystal chandeliers, soaring ceilings, and timeless elegance perfect for sophisticated celebrations.",
+                id: "salon-principal",
+                name: "El Salon Principal",
+                badge: "Local Emblematico",
+                description: "Un espacio interior opulento con lamparas de cristal, techos altos y una elegancia atemporal, perfecto para celebraciones sofisticadas.",
                 image: "images/venue-grand-hall.jpg",
                 imageFallback: "https://images.unsplash.com/photo-1464366400600-7168b8af9bc3?w=800&q=80",
-                imageAlt: "The Grand Hall - Elegant indoor venue",
+                imageAlt: "El Salon Principal - Local interior elegante",
                 features: [
-                    { icon: "capacity", text: "Up to 250 guests" },
-                    { icon: "wifi", text: "High-Speed WiFi" },
-                    { icon: "kitchen", text: "Full Kitchen" },
-                    { icon: "climate", text: "Climate Control" },
+                    { icon: "capacity", text: "Hasta 250 invitados" },
+                    { icon: "wifi", text: "WiFi de Alta Velocidad" },
+                    { icon: "kitchen", text: "Cocina Completa" },
+                    { icon: "climate", text: "Climatizacion" },
                 ],
-                bestFor: ["Grand Weddings", "Galas", "Corporate Events"],
+                bestFor: ["Grandes Bodas", "Galas", "Eventos Corporativos"],
             },
             {
-                id: "garden-terrace",
-                name: "The Garden Terrace",
-                badge: "Natural Beauty",
-                description: "A breathtaking outdoor haven surrounded by lush gardens, string lights, and natural beauty for romantic and intimate gatherings.",
+                id: "terraza-jardin",
+                name: "La Terraza Jardin",
+                badge: "Belleza Natural",
+                description: "Un refugio al aire libre rodeado de exuberantes jardines, luces decorativas y belleza natural para reuniones romanticas e intimas.",
                 image: "images/venue-garden-terrace.jpg",
                 imageFallback: "https://images.unsplash.com/photo-1510076857177-7470076d4098?w=800&q=80",
-                imageAlt: "The Garden Terrace - Beautiful outdoor venue",
+                imageAlt: "La Terraza Jardin - Hermoso local al aire libre",
                 features: [
-                    { icon: "capacity", text: "Up to 150 guests" },
-                    { icon: "pavilion", text: "Covered Pavilion" },
-                    { icon: "garden", text: "Scenic Gardens" },
-                    { icon: "lighting", text: "String Lighting" },
+                    { icon: "capacity", text: "Hasta 150 invitados" },
+                    { icon: "pavilion", text: "Pabellon Cubierto" },
+                    { icon: "garden", text: "Jardines Escenico" },
+                    { icon: "lighting", text: "Iluminacion Decorativa" },
                 ],
-                bestFor: ["Garden Weddings", "Communions", "Intimate Parties"],
+                bestFor: ["Bodas al Aire Libre", "Comuniones", "Fiestas Intimas"],
             },
         ],
     },
 
     // ==========================================
-    // EVENTS SECTION
+    // SECCION EVENTOS
     // ==========================================
     events: {
-        sectionTitle: "Events We Host",
-        sectionDescription: "From life's biggest milestones to intimate gatherings, we bring expertise and passion to every occasion.",
+        sectionTitle: "Eventos Que Organizamos",
+        sectionDescription: "Desde los grandes hitos de la vida hasta reuniones intimas, aportamos experiencia y pasion a cada ocasion.",
 
         items: [
             {
-                id: "weddings",
-                title: "Weddings",
-                description: "Your perfect day, beautifully realized in every detail.",
+                id: "bodas",
+                title: "Bodas",
+                description: "Tu dia perfecto, realizado con cada detalle cuidado.",
                 icon: "wedding",
             },
             {
-                id: "communions",
-                title: "Communions",
-                description: "Celebrate faith and family in an elegant setting.",
+                id: "comuniones",
+                title: "Comuniones",
+                description: "Celebra la fe y la familia en un entorno elegante.",
                 icon: "communion",
             },
             {
-                id: "birthdays",
-                title: "Birthdays",
-                description: "Make milestone moments truly unforgettable.",
+                id: "cumpleanos",
+                title: "Cumpleanos",
+                description: "Haz que los momentos importantes sean inolvidables.",
                 icon: "birthday",
             },
             {
-                id: "corporate",
-                title: "Corporate Events",
-                description: "Professional spaces that impress and inspire.",
+                id: "corporativos",
+                title: "Eventos Corporativos",
+                description: "Espacios profesionales que impresionan e inspiran.",
                 icon: "corporate",
             },
         ],
     },
 
     // ==========================================
-    // GALLERY SECTION
+    // SECCION GALERIA
     // ==========================================
     gallery: {
-        sectionTitle: "Captured Moments",
-        sectionDescription: "A glimpse into the celebrations we've had the honor to host.",
+        sectionTitle: "Momentos Capturados",
+        sectionDescription: "Un vistazo a las celebraciones que hemos tenido el honor de organizar.",
 
         images: [
             {
                 src: "images/gallery-1.jpg",
                 fallback: "https://images.unsplash.com/photo-1511795409834-ef04bbd61622?w=800&q=80",
-                alt: "Elegant table setting",
+                alt: "Decoracion de mesa elegante",
             },
             {
                 src: "images/gallery-2.jpg",
                 fallback: "https://images.unsplash.com/photo-1478146059778-26028b07395a?w=600&q=80",
-                alt: "Wedding ceremony",
+                alt: "Ceremonia de boda",
             },
             {
                 src: "images/gallery-3.jpg",
                 fallback: "https://images.unsplash.com/photo-1530103862676-de8c9debad1d?w=600&q=80",
-                alt: "Celebration balloons",
+                alt: "Globos de celebracion",
             },
             {
                 src: "images/gallery-4.jpg",
                 fallback: "https://images.unsplash.com/photo-1470217957101-da7150b9b681?w=600&q=80",
-                alt: "Garden venue lighting",
+                alt: "Iluminacion del jardin",
             },
             {
                 src: "images/gallery-5.jpg",
                 fallback: "https://images.unsplash.com/photo-1529636798458-92182e662485?w=600&q=80",
-                alt: "Floral arrangements",
+                alt: "Arreglos florales",
             },
         ],
     },
 
     // ==========================================
-    // BOOKING SECTION
+    // SECCION RESERVAS
     // ==========================================
     booking: {
-        title: "Let's Plan Your Perfect Event",
-        description: "Ready to turn your vision into reality? Get in touch with our team and let's start creating something beautiful together.",
+        title: "Planifiquemos Tu Evento Perfecto",
+        description: "Listo para convertir tu vision en realidad? Contacta con nuestro equipo y comencemos a crear algo hermoso juntos.",
 
         form: {
-            title: "Request Information",
-            submitText: "Send Inquiry",
-            submittingText: "Sending...",
-            successText: "Message Sent!",
+            title: "Solicitar Informacion",
+            submitText: "Enviar Consulta",
+            submittingText: "Enviando...",
+            successText: "Mensaje Enviado!",
 
             fields: {
                 name: {
-                    label: "Your Name",
-                    placeholder: "John & Jane Doe",
+                    label: "Tu Nombre",
+                    placeholder: "Juan y Maria Garcia",
                 },
                 email: {
-                    label: "Email Address",
-                    placeholder: "hello@email.com",
+                    label: "Correo Electronico",
+                    placeholder: "hola@email.com",
                 },
                 eventType: {
-                    label: "Event Type",
-                    placeholder: "Select an occasion",
+                    label: "Tipo de Evento",
+                    placeholder: "Selecciona una ocasion",
                     options: [
-                        { value: "wedding", label: "Wedding" },
-                        { value: "communion", label: "Communion" },
-                        { value: "birthday", label: "Birthday Celebration" },
-                        { value: "corporate", label: "Corporate Event" },
-                        { value: "other", label: "Other" },
+                        { value: "boda", label: "Boda" },
+                        { value: "comunion", label: "Comunion" },
+                        { value: "cumpleanos", label: "Celebracion de Cumpleanos" },
+                        { value: "corporativo", label: "Evento Corporativo" },
+                        { value: "otro", label: "Otro" },
                     ],
                 },
                 date: {
-                    label: "Preferred Date",
+                    label: "Fecha Preferida",
                 },
                 message: {
-                    label: "Tell Us About Your Event",
-                    placeholder: "Share your vision, guest count, and any special requirements...",
+                    label: "Cuentanos Sobre Tu Evento",
+                    placeholder: "Comparte tu vision, numero de invitados y cualquier requisito especial...",
                 },
             },
         },
     },
 
     // ==========================================
-    // FOOTER
+    // PIE DE PAGINA
     // ==========================================
     footer: {
-        description: "Creating unforgettable moments in our family-owned venues since 1987. Two beautiful spaces, one commitment to excellence.",
+        description: "Creando momentos inolvidables en nuestros locales familiares desde 1987. Dos espacios hermosos, un compromiso con la excelencia.",
 
         socialLinks: [
             { platform: "facebook", url: "#", label: "Facebook" },
@@ -230,48 +231,48 @@ const CONFIG = {
 
         columns: [
             {
-                title: "Quick Links",
+                title: "Enlaces Rapidos",
                 links: [
-                    { text: "Our Venues", href: "#venues" },
-                    { text: "Occasions", href: "#occasions" },
-                    { text: "Gallery", href: "#gallery" },
-                    { text: "Book Now", href: "#booking" },
+                    { text: "Nuestros Locales", href: "#venues" },
+                    { text: "Eventos", href: "#occasions" },
+                    { text: "Galeria", href: "#gallery" },
+                    { text: "Reservar", href: "#booking" },
                 ],
             },
             {
-                title: "Our Venues",
+                title: "Nuestros Locales",
                 links: [
-                    { text: "The Grand Hall", href: "#venues" },
-                    { text: "Garden Terrace", href: "#venues" },
-                    { text: "Virtual Tour", href: "#booking" },
-                    { text: "Availability", href: "#booking" },
+                    { text: "El Salon Principal", href: "#venues" },
+                    { text: "Terraza Jardin", href: "#venues" },
+                    { text: "Tour Virtual", href: "#booking" },
+                    { text: "Disponibilidad", href: "#booking" },
                 ],
             },
             {
-                title: "Contact",
+                title: "Contacto",
                 links: [
-                    { text: "+1 (555) 123-4567", href: "tel:+15551234567" },
-                    { text: "hello@velitasestate.com", href: "mailto:hello@velitasestate.com" },
-                    { text: "123 Estate Avenue", href: "#booking" },
-                    { text: "Schedule a Visit", href: "#booking" },
+                    { text: "+34 912 345 678", href: "tel:+34912345678" },
+                    { text: "info@localesvelita.com", href: "mailto:info@localesvelita.com" },
+                    { text: "Calle Principal 123", href: "#booking" },
+                    { text: "Programar Visita", href: "#booking" },
                 ],
             },
         ],
 
-        copyright: "© 2026 Velitas Estate. All rights reserved.",
-        familyBadge: "Family Owned Since 1987",
+        copyright: "© 2026 Locales Velita. Todos los derechos reservados.",
+        familyBadge: "Empresa Familiar Desde 1987",
     },
 
     // ==========================================
-    // SEO & META
+    // SEO Y META
     // ==========================================
     meta: {
-        title: "Velitas Estate | Two Venues, Countless Memories",
-        description: "Discover two extraordinary event venues for weddings, communions, and private celebrations. Family-owned since 1987.",
+        title: "Locales Velita | Dos Locales, Infinitos Recuerdos",
+        description: "Descubre dos locales extraordinarios para bodas, comuniones y celebraciones privadas. Empresa familiar desde 1987.",
     },
 };
 
-// Export for use in other modules
+// Exportar para uso en otros modulos
 if (typeof module !== 'undefined' && module.exports) {
     module.exports = CONFIG;
 }
